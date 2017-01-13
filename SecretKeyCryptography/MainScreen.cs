@@ -30,7 +30,7 @@ namespace SecretKeyCryptography
         {
             cmb_Algorithms.DataSource = Enum.GetNames(typeof(Yontemler));
             cmb_Algorithms.SelectedIndex = 0;
-            metroTextBox2.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            txtDestinationFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         }
 
@@ -242,7 +242,7 @@ namespace SecretKeyCryptography
             OpenFileDialog file = new OpenFileDialog();
             if (file.ShowDialog() == DialogResult.OK)
             {
-                metroTextBox1.Text = file.FileName;
+                txtSourceFile.Text = file.FileName;
             }
         }
 
@@ -253,7 +253,7 @@ namespace SecretKeyCryptography
 
             if (file.ShowDialog() == DialogResult.OK)
             {
-                metroTextBox2.Text = file.SelectedPath;
+                txtDestinationFile.Text = file.SelectedPath;
             }
 
 
@@ -261,8 +261,8 @@ namespace SecretKeyCryptography
 
         private void btn_EncryptFile_Click(object sender, EventArgs e)
         {
-            bool status = EncryptFile(metroTextBox1.Text,
-                metroTextBox2.Text + "\\" + Path.GetFileName(metroTextBox1.Text) + "." + cmb_Algorithms.Text.ToLower());
+            bool status = EncryptFile(txtSourceFile.Text,
+                txtDestinationFile.Text + "\\" + Path.GetFileName(txtSourceFile.Text) + "." + cmb_Algorithms.Text.ToLower());
             if (status)
             {
                 MetroMessageBox.Show(this, "Encryption completed successfully!", "Success", MessageBoxButtons.OK,
@@ -272,8 +272,8 @@ namespace SecretKeyCryptography
 
         private void btn_DecryptFile_Click(object sender, EventArgs e)
         {
-            string destination = Path.ChangeExtension(Path.GetFileName(metroTextBox1.Text), "").TrimEnd(new char[] { '.' });
-            bool status = DecryptFile(metroTextBox1.Text, metroTextBox2.Text + "\\" + destination);
+            string destination = Path.ChangeExtension(Path.GetFileName(txtSourceFile.Text), "").TrimEnd(new char[] { '.' });
+            bool status = DecryptFile(txtSourceFile.Text, txtDestinationFile.Text + "\\" + destination);
 
             if (status)
             {
