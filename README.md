@@ -8,4 +8,4 @@ AES, DES, TribleDES, RC2 encryption and decryption (File/Text)
 <img src="https://cloud.githubusercontent.com/assets/2998685/21937454/37c703da-d9c0-11e6-9f6e-6db98ad860c2.png"></img>
 
 
-You can press F12 to switch to the dark theme.
+You can press F12 to switch to the light theme.
