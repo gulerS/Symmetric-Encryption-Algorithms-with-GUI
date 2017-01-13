@@ -18,7 +18,7 @@ namespace SecretKeyCryptography
 
         }
 
-        private enum Yontemler
+        private enum Yontemler // algorithm types
         {
             DES,
             TripleDES,
@@ -62,7 +62,7 @@ namespace SecretKeyCryptography
                 string password = txt_key.Text;
                 string salt = txt_salt.Text;
                 string plainText = txt_InputText.Text;
-                byte[] plainBytes = Encoding.UTF8.GetBytes(plainText); // Byte dizisine kodla
+                byte[] plainBytes = Encoding.UTF8.GetBytes(plainText); 
 
                 //Rfc2898DeriveBytes: Used to Generate Strong Keys
                 Rfc2898DeriveBytes rfc = new Rfc2898DeriveBytes(password,
